@@ -28,6 +28,10 @@
         });
         iElement.on('blur', function() {
             chipsCtrl.setFocus(false);
+            if (event.target.value !== '') {
+                chipsCtrl.addChip(event.target.value);
+                event.target.value = "";
+            }
         });
     };
 })();
