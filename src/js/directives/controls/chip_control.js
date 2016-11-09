@@ -16,7 +16,11 @@
     /*@ngInject*/
     function ChipControlLinkFun(scope, iElement, iAttrs, chipsCtrl) {
         iElement.on('keypress', function(event) {
-            if (event.keyCode === 13 && event.target.value !== '') {
+          if (( event.keyCode === 13 ||  // enter
+                event.keyCode === 59 || // semicolon
+                event.keyCode === 32 || // space
+                event.keyCode === 44 ) // comma
+                && event.target.value !== '') {
                 chipsCtrl.addChip(event.target.value);
                 event.target.value = "";
                 event.preventDefault();
